@@ -83,4 +83,37 @@ p {
         transform: translateY(120vh) rotate(360deg);
         opacity: 0;
     }
+
+}
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 16px;
+    }
+
+    .special-heading {
+        font-size: 24px;
+        padding: 8px 16px;
+    }
 }
