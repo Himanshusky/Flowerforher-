@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle, #ffb6c1, #ff44a2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Georgia', serif;
+}
+
+.letter-box {
+    background: #eeebe4;
+    padding: 40px;
+    border-radius: 15px;
+    width: 40%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: openLetter 1.5s ease;
+}
+.letter-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+#letter-text {
+    flex: 1;
+    white-space: pre-line; /* keeps line breaks */
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+#bouquet {
+    display: none;        /* hidden until typing ends */
+    width: 35%;           /* adjusts with text width */
+    max-width: 250px;
+    height: auto;
+}
+
+@keyframes openLetter {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+h2 {
+    text-align: center;
+    color: #e91e63;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #444;
+    margin-top: 20px;
+    white-space: pre-line;
+}
+.falling {
+    position: fixed;
+    top: -10%;
+    z-index: 999;
+    animation-name: fall;
+    animation-timing-function: linear;
+    pointer-events: none;
+}
+.btn {
+    text-decoration: none;
+    padding: 15px 30px;
+    background: #e91e63;
+    color: white;
+    border-radius: 30px;
+    font-size: 18px;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+
+.btn:hover {
+    background: #c2185b;
+    transform: scale(1.1);
+}
+.button-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+    z-index: 1000;
+}
+
+
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
