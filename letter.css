@@ -1,91 +1,67 @@
-body {/* RESET & BASE */
-* {
-    box-sizing: border-box;
-}
-
 body {
     margin: 0;
-    min-height: 100vh;
+    height: 100vh;
     background: radial-gradient(circle, #ffb6c1, #ff44a2);
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Georgia', serif;
-    padding: 20px;
 }
 
-/* LETTER BOX */
 .letter-box {
     background: #eeebe4;
-    padding: 30px;
+    padding: 40px;
     border-radius: 15px;
-    width: 100%;
-    max-width: 900px;  /* perfect for PC */
+    width: 40%;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     animation: openLetter 1.5s ease;
 }
-
-/* LETTER CONTENT */
 .letter-container {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 20px;
-    margin-top: 20px;
+    max-width: 800px;
+    margin: auto;
 }
 
-/* TEXT */
 #letter-text {
     flex: 1;
-    white-space: pre-line;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #333;
+    white-space: pre-line; /* keeps line breaks */
+    font-size: 18px;
+    line-height: 1.6;
 }
 
-/* IMAGE */
 #bouquet {
-    display: none;
-    width: 30%;
-    max-width: 220px;
+    display: none;        /* hidden until typing ends */
+    width: 35%;           /* adjusts with text width */
+    max-width: 250px;
     height: auto;
 }
 
-/* TITLE */
+@keyframes openLetter {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 h2 {
     text-align: center;
     color: #e91e63;
-    font-size: 1.8rem;
 }
 
-/* BUTTONS */
-.button-container {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    display: flex;
-    gap: 10px;
-    z-index: 1000;
-    flex-wrap: wrap;
+p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #444;
+    margin-top: 20px;
+    white-space: pre-line;
 }
-
-.btn {
-    text-decoration: none;
-    padding: 12px 20px;
-    background: #e91e63;
-    color: white;
-    border-radius: 30px;
-    font-size: 1rem;
-    transition: 0.3s;
-    text-align: center;
-}
-
-.btn:hover {
-    background: #c2185b;
-    transform: scale(1.05);
-}
-
-/* FALLING ANIMATION */
 .falling {
     position: fixed;
     top: -10%;
@@ -94,18 +70,32 @@ h2 {
     animation-timing-function: linear;
     pointer-events: none;
 }
-
-/* ANIMATIONS */
-@keyframes openLetter {
-    from {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+.btn {
+    text-decoration: none;
+    padding: 15px 30px;
+    background: #e91e63;
+    color: white;
+    border-radius: 30px;
+    font-size: 18px;
+    transition: 0.3s;
+    z-index: 1000;
 }
+
+
+.btn:hover {
+    background: #c2185b;
+    transform: scale(1.1);
+}
+.button-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+    z-index: 1000;
+}
+
+
 
 @keyframes fall {
     0% {
@@ -116,49 +106,4 @@ h2 {
         transform: translateY(120vh) rotate(360deg);
         opacity: 0;
     }
-}
-
-/* 📱 MOBILE RESPONSIVE */
-@media (max-width: 768px) {
-
-    body {
-        align-items: flex-start;
-    }
-
-    .letter-box {
-        padding: 20px;
-    }
-
-    .letter-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    #letter-text {
-        font-size: 1rem;
-    }
-
-    #bouquet {
-        width: 60%;
-        margin-top: 20px;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    .button-container {
-        position: static;
-        justify-content: center;
-        margin-bottom: 15px;
-    }
-
-    .btn {
-        font-size: 0.95rem;
-        padding: 10px 18px;
-    }
-}
-
-
 }
